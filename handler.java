@@ -248,25 +248,33 @@ public class Handler implements ActionListener {
                     view.viewErrorMsg(ex.getMessage());
                 }
             } else if (source.equals(van.getBtnHapus())) {
-//                try {
-//                    if (JOptionPane.showConfirmDialog(vpj, "Yakin Hapus?","Info",JOptionPane.YES_NO_OPTION)==JOptionPane.YES_OPTION) {
-//                        String tanggal = vpj.getCmbTahun() + "/" + vpj.getCmbBulan() + "/" + vpj.getCmbTanggal();
-//                        Perjalanan perjalanan = new Perjalanan(vpj.getTxtIdPerjalanan(), vpj.getTxtNamaPerjalanan(), vpj.getCmbIdPaketWisata(), tanggal);
-//                        ResultSet rs = model.getIdPerjalananInCustomerById(perjalanan.getIdPerjalanan());
+                try {
+                    if (JOptionPane.showConfirmDialog(van, "Yakin Hapus?","Info",JOptionPane.YES_NO_OPTION)==JOptionPane.YES_OPTION) {
+                        Nasabah nasabah = new Nasabah();
+                        nasabah.setIdNasabah(van.getTxtNoRek());
+                        nasabah.setNama(van.getTxtNamaNasabah());
+                        nasabah.setAlamat(van.getTxtAlamat());
+                        nasabah.setEmail(van.getTxtEmail());
+                        nasabah.setNotelp(van.getTxtNoTelp());
+                        nasabah.setSaldo(Double.valueOf(van.getTxtSaldo()));
+                        nasabah.setPin(van.getTxtPassword());
+                        nasabah.setId_mhs(van.getCboIdMhs());
+                        ResultSet rs = model.getNasabahById(nasabah.getIdNasabah());
 //                        if (rs.next()) {
 //                            if (rs.getInt(1)>0){
-//                                view.viewErrorMsg("Data Perjalanan tidak dapat dihapus karena digunakan oleh Customer");
+//                                view.viewErrorMsg("Data Nasabah tidak dapat dihapus karena digunakan oleh ");
 //                                return;
 //                            }
 //                        }                          
-//                        model.deletePerjalanan(perjalanan);
-//                        view.viewErrorMsg("Perjalanan berhasil dihapus");
-//                        vpj.clearAll();
-//                    }
-//                } catch (Exception ex) {
-//                    System.out.println("ERROR - Perjalanan gagal dihapus");
-//                    view.viewErrorMsg(ex.getMessage());
-//                }
+                        model.deleteNasabah(nasabah);
+                        view.viewErrorMsg("Nasabah berhasil dihapus");
+                        van.clearAll();
+                    }
+                } catch (Exception ex) {
+                    System.out.println("ERROR - Nasabah gagal dihapus");
+                    view.viewErrorMsg(ex.getMessage());
+                }
+            }
             } else if (source.equals(van.getBtnBatal())) {
                 van.clearAll();
             } else if (source.equals(van.getBtnKeluar())) {

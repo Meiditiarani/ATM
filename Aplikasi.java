@@ -168,6 +168,11 @@ public class Aplikasi {
         koneksi.runQuery(query);
     }
     
+    public void deleteNasabah(Nasabah n){
+        String query = "DELETE FROM NASABAH WHERE id_nasabah='"+n.getIdNasabah()+"'";
+        koneksi.runQuery(query);
+    }
+    
     public ResultSet getIdPembayaranByNasabah(String id) {
         String query = "SELECT * FROM PEMBAYARAN WHERE id_nasabah = '" + id + "'";
         return koneksi.getData(query);

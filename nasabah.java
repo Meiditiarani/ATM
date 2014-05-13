@@ -21,7 +21,20 @@ public class Nasabah {
     public String getAlamat() {
         return alamat;
     }
+ public Nasabah(){
+        
+    }
 
+    public Nasabah(String idNabasah, String nama, String alamat, String email, String notelp, Double saldo, String pin, String id_mhs){
+        this.idNasabah = idNabasah;
+        this.nama = nama;
+        this.alamat = alamat;
+        this.email = email;
+        this.notelp = notelp;
+        this.saldo = saldo;
+        this.pin = pin;
+        this.id_mhs = id_mhs;
+    }
     public void setAlamat(String alamat) {
         this.alamat = alamat;
     }

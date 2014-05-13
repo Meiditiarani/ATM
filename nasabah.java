@@ -4,10 +4,7 @@
  */
 package model;
 
-/**
- *
- * @author dupi
- */
+
 public class Nasabah {
     private String idNasabah;
     private String nama;
